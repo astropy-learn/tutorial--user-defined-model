@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: User-defined Model
-author: The Astropy Community
+author: Astropy Learn
 logo: logo.png
 
 # Force re-execution of notebooks on each build
@@ -11,16 +11,16 @@ execute:
   execute_notebooks: force
 
 # Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: tutorial.tex
+# latex:
+#   latex_documents:
+#     targetname: tutorial.tex
 
 # Add a bibtex file to create citations
 # bibtex_bibfiles:
 #   - references.bib
 
 repository:
-  url: https://github.com/astropy/astropy-tutorials 
+  url: https://github.com/astropy-learn/tutorial--user-defined-model
   # path_to_book: docs # Path to .ipynb, relative to the repository root (optional)
   branch: main/ # Branch of the repository to be used when creating links (optional) 
 
@@ -33,5 +33,5 @@ html:
 
 launch_buttons:
   notebook_interface: "classic" # "jupyterlab"
-  binderhub_url: "https://mybinder.org/v2/gh/astropy/astropy-tutorials/main?filepath=tutorials"
+  binderhub_url: "https://mybinder.org/v2/gh/astropy-learn/tutorial--user-defined-model/main?urlpath=%2Fdoc%2Ftree%2FUser-Defined-Model.ipynb"
   thebe : true
