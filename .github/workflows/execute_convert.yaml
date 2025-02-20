@@ -1,0 +1,23 @@
+name: Execute Jupyter notebook and convert the result to HTML
+
+inputs:
+  python-version:
+    type: string
+    default: "3.12"
+    
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    concurrency: post-${{ github.ref }}
+    permissions:
+      contents: write
+    steps:
+      - uses: astropy-learn/execute-convert@main
+        with:
+          python-version: ${{ inputs.python-version }}
