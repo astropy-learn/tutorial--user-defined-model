@@ -1,10 +1,5 @@
-name: Execute Jupyter notebook and convert the result to HTML
+name: 'Execute Jupyter notebook and convert the result to HTML'
 
-inputs:
-  python-version:
-    type: string
-    default: "3.12"
-    
 on:
   push:
     branches:
@@ -20,4 +15,4 @@ jobs:
     steps:
       - uses: astropy-learn/execute-convert@main
         with:
-          python-version: ${{ inputs.python-version }}
+          python-version: "3.12"
