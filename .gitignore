@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Jupyterbook output 
-# _build/ 
+_build/ 
 
 # Distribution / packaging
 .Python
