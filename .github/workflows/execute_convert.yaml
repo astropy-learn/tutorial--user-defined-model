@@ -1,4 +1,4 @@
-name: 'Execute Jupyter notebook and convert the result to HTML'
+name: 'Execute and convert Jupyter notebook to HTML'
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  execute:
+  execute_convert:
     runs-on: ubuntu-latest
     concurrency: post-${{ github.ref }}
     permissions:
