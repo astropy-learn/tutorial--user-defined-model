@@ -4,12 +4,15 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  schedule:
+    # daily at 07:20 UTC
+    - cron: "20 07 * * *"
+  # allow manual triggering of workflow
+  workflow_dispatch:
 
 jobs:
   execute_convert:
     runs-on: ubuntu-latest
-    concurrency: post-${{ github.ref }}
     permissions:
       contents: write
     steps:
