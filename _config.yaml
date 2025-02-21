@@ -33,5 +33,5 @@ html:
 
 launch_buttons:
   notebook_interface: "classic" # "jupyterlab"
-  binderhub_url: "https://mybinder.org/v2/gh/astropy-learn/tutorial--user-defined-model/main?urlpath=%2Fdoc%2Ftree%2FUser-Defined-Model.ipynb"
+  binderhub_url: "https://mybinder.org/v2/gh/astropy-learn/${{ github.ref }}/main?urlpath=%2Fdoc%2Ftree%2FUser-Defined-Model.ipynb"
   thebe : true
