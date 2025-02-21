@@ -21,5 +21,3 @@ jobs:
       contents: write
     steps:
       - uses: astropy-learn/execute-convert@main
-        with:
-          python-version: "3.12"
