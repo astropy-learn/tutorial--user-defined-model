@@ -10,6 +10,10 @@ on:
   # allow manual triggering of workflow
   workflow_dispatch:
 
+# allow only 1 instance of workflow at a time
+concurrency:
+  group: ${{ github.workflow }}
+
 jobs:
   execute_convert:
     runs-on: ubuntu-latest
