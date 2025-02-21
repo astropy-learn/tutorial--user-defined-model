@@ -20,7 +20,6 @@ execute:
 #   - references.bib
 
 repository:
-  # url: https://github.com/astropy-learn/tutorial--user-defined-model
   url: https://github.com/astropy-learn/${{ github.ref }}
   # path_to_book: docs # Path to .ipynb, relative to the repository root (optional)
   branch: main/ # Branch of the repository to be used when creating links (optional) 
