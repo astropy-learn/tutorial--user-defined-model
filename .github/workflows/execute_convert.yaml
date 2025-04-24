@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: populate-yaml-files
         id: py-yaml
-        run: echo "TUTORIAL-SLUG=$(python populate_yaml.py) >> "$GITHUB_OUTPUT"
+        run: echo "TUTORIAL-SLUG=$(python populate_yaml.py)" >> "$GITHUB_OUTPUT"
 
       - name: execute-convert-notebook
         uses: astropy-learn/execute-convert@main
