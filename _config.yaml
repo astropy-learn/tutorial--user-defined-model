@@ -20,7 +20,7 @@ execute:
 #   - references.bib
 
 repository:
-  url: https://github.com/astropy-learn/user-defined-model
+  url: https://github.com/astropy-learn/tutorial--user-defined-model
   # path_to_book: docs # Path to .ipynb, relative to the repository root (optional)
   branch: main/ # Branch of the repository to be used when creating links (optional) 
 
@@ -33,5 +33,5 @@ html:
 
 launch_buttons:
   notebook_interface: "classic" # "jupyterlab"
-  binderhub_url: "https://mybinder.org/v2/gh/astropy-learn/user-defined-model/main?urlpath=%2Fdoc%2Ftree%2FUser-Defined-Model.ipynb"
+  binderhub_url: "https://mybinder.org/v2/gh/astropy-learn/tutorial--user-defined-model/main?urlpath=%2Fdoc%2Ftree%2FUser-Defined-Model.ipynb"
   thebe : true
