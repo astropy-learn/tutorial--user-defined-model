@@ -1,5 +1,4 @@
 name: 'Execute and convert Jupyter notebook to .html and .pdf'
-
 on:
   push:
     branches:
@@ -20,11 +19,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: test
-        shell: bash
-        run: echo ${{ github.event.inputs.tutorial-slug }}
-      - id: convert
+      - name: populate-yaml-files
+        id: py-yaml
+        run: echo "TUTORIAL-SLUG=$(python populate_yaml.py) >> "$GITHUB_OUTPUT"
+
+      - name: execute-convert-notebook
         uses: astropy-learn/execute-convert@main
         with: 
           # python-version: 3.12  
-          tutorial-slug: ${{ github.event.inputs.tutorial-slug }}
+          tutorial-slug: ${{ steps.py-yaml.outputs.TUTORIAL-SLUG }}
