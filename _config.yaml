@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: User-defined Model
-author: Astropy Learn
+title: 
+author:
 logo: logo.png
 
 # Force re-execution of notebooks on each build
@@ -20,7 +20,7 @@ execute:
 #   - references.bib
 
 repository:
-  url: https://github.com/astropy-learn/tutorial--user-defined-model
+  url: 
   # path_to_book: docs # Path to .ipynb, relative to the repository root (optional)
   branch: main/ # Branch of the repository to be used when creating links (optional) 
 
