@@ -20,6 +20,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: test
+        shell: bash
+        run: echo ${{ github.event.inputs.tutorial-slug }}
       - id: convert
         uses: astropy-learn/execute-convert@main
         with: 
