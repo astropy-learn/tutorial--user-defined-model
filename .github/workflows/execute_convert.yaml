@@ -1,4 +1,4 @@
-name: 'Execute and convert Jupyter notebook to HTML'
+name: 'Execute and convert Jupyter notebook to .html and .pdf'
 
 on:
   push:
@@ -20,4 +20,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: astropy-learn/execute-convert@main
+      - id: convert
+        uses: astropy-learn/execute-convert@main
+        with: 
+          # python-version: 3.12  
+          tutorial-slug: ${{ github.event.inputs.tutorial-slug }}
