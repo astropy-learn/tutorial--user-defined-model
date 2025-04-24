@@ -20,6 +20,8 @@ cfg["launch_buttons"]["binderhub_url"] = (
 with open("_config.yaml", "w") as f:
     cfg = yaml.dump(cfg, stream=f, default_flow_style=False, sort_keys=False)
 
+# print str for use by execute_convert action
+print(meta["slug"])
 # update github action with metadata
 # with open(".github/workflows/execute_convert.yaml", "w") as f:
 #     wrkflw = yaml.load(f, Loader=yaml.SafeLoader)
