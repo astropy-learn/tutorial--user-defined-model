@@ -19,11 +19,24 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout python scripts
+      - name: Check out python scripts
         uses: actions/checkout@v4
         with:
-          name: astropy-learn/astropy-tutorials
-          ref: main
+          submodules: 'true'
+
+      - name: add submodule
+        run: git submodule add https://github.com/astropy-learn/astropy-tutorials
+        shell: bash
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build requirements
+        shell: bash
+        run: | 
+          pip install pyyaml
 
       - name: populate-yaml-files
         id: py-yaml
