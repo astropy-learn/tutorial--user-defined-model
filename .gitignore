@@ -1,6 +1,9 @@
 # Mac
 .DS_Store 
 
+# act
+/bin/act
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
