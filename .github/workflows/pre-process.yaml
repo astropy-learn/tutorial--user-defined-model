@@ -1,4 +1,4 @@
-name: 'Execute and convert Jupyter notebook to .html and .pdf'
+name: 'Prepare jupyterbook files for execution'
 on:
   push:
     branches:
@@ -14,7 +14,7 @@ concurrency:
   group: ${{ github.workflow }}
 
 jobs:
-  execute_convert:
+  pre-proc:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -35,14 +35,14 @@ jobs:
 
       - name: Install build requirements
         shell: bash
-        run: | 
-          pip install pyyaml
+        run: pip install pyyaml
 
-      - name: Populate yaml files
+      - name: Populate _config.yaml
         id: py-yaml
+        shell: bash
         run: echo "TUTORIAL-SLUG=$(python astropy-tutorials/scripts/populate_yaml.py)" >> "$GITHUB_OUTPUT"
 
-      - name: Execute and convert notebook
+      - name: Call custom action to execute and convert notebook
         uses: astropy-learn/execute-convert@main
         with: 
           # python-version: 3.12  
