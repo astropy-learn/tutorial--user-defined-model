@@ -1,0 +1,20 @@
+name: 'Call actions to pre-process config files and execute/convert notebook'
+
+on: 
+  push:
+    branches:
+      - main
+  schedule:
+    # daily at 07:20 UTC
+    - cron: "20 07 * * *"
+  # allow manual triggering of workflow
+  workflow_dispatch:
+
+jobs:
+    execute:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - name: Call custom action to pre-process config files
+          uses: astropy-learn/pre-process@main
