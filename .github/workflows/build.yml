@@ -18,3 +18,5 @@ jobs:
       steps:
         - name: Call custom action to pre-process config files
           uses: astropy-learn/pre-process@main
+          with: 
+            python-version: "3.12"
