@@ -1,5 +1,8 @@
 name: 'Call actions to pre-process config files and execute/convert notebook'
 
+env:
+    PYTHON-VERSION: "3.12"
+
 on: 
   push:
     branches:
@@ -11,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-    execute:
+    pre-proc:
       runs-on: ubuntu-latest
       permissions:
         contents: write
@@ -19,4 +22,16 @@ jobs:
         - name: Call custom action to pre-process config files
           uses: astropy-learn/pre-process@main
           with: 
-            python-version: "3.12"
+            python-version: ${{ env.PYTHON-VERSION }}
+
+    execute:
+      needs: pre-proc
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write        
+      steps:
+        - name: Call custom action to execute and convert notebook
+          uses: astropy-learn/execute-convert@main
+          with: 
+            python-version: ${{ env.PYTHON-VERSION }}
+            tutorial-slug: ${{ needs.pre-proc.outputs.tutorial-slug }}
