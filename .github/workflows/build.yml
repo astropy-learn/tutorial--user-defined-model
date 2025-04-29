@@ -14,19 +14,25 @@ on:
   workflow_dispatch:
 
 jobs:
-    preprocess-execute-convert:
+    pre-proc:
       runs-on: ubuntu-latest
       permissions:
         contents: write
       steps:
         - name: Call custom action to pre-process config files
-          id: pre-process
           uses: astropy-learn/pre-process@main
           with: 
             python-version: ${{ env.PYTHON-VERSION }}
 
-        - name: Call custom action to execute and convert notebook
+    execute:
+      needs: pre-proc
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write        
+      steps:
+        - env: 
+            TUTORIAL-SLUG: ${{needs.pre-proc.outputs.tutorial-slug}}
           uses: astropy-learn/execute-convert@main
           with: 
             python-version: ${{ env.PYTHON-VERSION }}
-            tutorial-slug: ${{ steps.pre-process.outputs.tutorial-slug }}
+            tutorial-slug: ${{ env.TUTORIAL-SLUG }}
