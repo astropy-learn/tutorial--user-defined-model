@@ -21,12 +21,12 @@ jobs:
       steps:
         - name: Call custom action to pre-process config files
           id: pre-process
-          uses: astropy-learn/pre-process@main
+          uses: astropy-learn/action--pre-process@main
           with: 
             python-version: ${{ env.PYTHON-VERSION }}
 
         - name: Call custom action to execute and convert notebook
-          uses: astropy-learn/execute-convert@main
+          uses: astropy-learn/action--execute-convert@main
           with: 
             python-version: ${{ env.PYTHON-VERSION }}
             tutorial-slug: ${{ steps.pre-process.outputs.tutorial-slug }}
